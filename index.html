@@ -15,7 +15,7 @@ a{color:inherit}h1,h2,h3,p,ol,ul{margin:0}ol,ul{padding:0;list-style:none}
 section{padding:clamp(72px,11vw,140px) 0;border-top:1px solid var(--ln)}
 h1,h2{font-weight:300;letter-spacing:-.045em;line-height:.98}
 h1{font-size:clamp(1.7rem,3.8vw,3.2rem)}h2{font-size:clamp(2.2rem,5.4vw,4.8rem);max-width:15ch}
-.role{display:inline-block;font-size:clamp(1.5rem,3.6vw,2.9rem);font-weight:500;letter-spacing:-.03em;line-height:1.15}
+.role{display:inline-block;white-space:nowrap;font-size:clamp(1.35rem,2.8vw,2.4rem);font-weight:500;letter-spacing:-.03em;line-height:1.15}
 .mu{color:var(--mu)}.sm{font-size:14px}
 .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
 nav{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
@@ -34,11 +34,11 @@ nav.c{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:bl
 .portrait{position:relative;opacity:0;transform:translateY(16px);animation:fd 1s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.35s}
 .portrait img{display:block;width:100%;height:auto}
 .portrait span{position:absolute;left:2px;bottom:14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
-@media(max-width:800px){.herotop{grid-template-columns:1fr}.portrait{order:-1;max-width:280px}}
+@media(max-width:800px){.herotop{grid-template-columns:1fr}.portrait{order:-1;max-width:280px}.role{white-space:normal}}
 .l{display:block;overflow:hidden;padding-bottom:.08em}.l>span{display:block;transform:translateY(108%);animation:up 1s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(var(--i)*.11s + .1s)}
 @keyframes up{to{transform:none}}
 .fade{opacity:0;transform:translateY(14px);animation:fd .9s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(var(--i)*.1s + .5s)}@keyframes fd{to{opacity:1;transform:none}}
-.hg{margin-top:48px}
+.hg{margin-top:48px}.hg>.mu{margin-top:32px}
 .hg .ln{font-size:clamp(1.15rem,2vw,1.5rem);letter-spacing:-.02em;line-height:1.35;grid-column:1}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center}
 .av{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--mu);margin-left:8px}.av:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ac);outline:1px solid var(--ink);animation:pl 2s infinite}
@@ -59,6 +59,14 @@ nav.c{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:bl
 .split p+p{margin-top:1.1em}
 @media(max-width:800px){.split{grid-template-columns:1fr}.split>:first-child{position:static}}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px}@media(max-width:860px){.two{grid-template-columns:1fr}}
+#ai h2{max-width:none;white-space:nowrap}
+.about-thinking span{display:block;white-space:nowrap}
+@media(max-width:600px){.about-thinking span{white-space:normal}}
+
+.gd .pn{display:flex;flex-direction:column;height:100%;min-height:680px;padding-bottom:36px}
+.gd .pn .btn{margin-top:auto !important;align-self:flex-start}
+@media(max-width:900px){.gd .pn{min-height:0}}
+@media(max-width:600px){#ai h2{white-space:normal}}
 .pn{background:var(--sf);border:1px solid var(--ln);padding:clamp(24px,3vw,44px);border-radius:4px}
 .pn h3{font-weight:400;font-size:1.5rem;letter-spacing:-.03em;margin:6px 0 8px}
 .steps{margin:28px 0;position:relative}.steps:before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--ln)}
@@ -75,12 +83,12 @@ nav.c{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:bl
 .cs:hover .vw b{transform:rotate(45deg);background:var(--ac);color:var(--on)}
 .cs .vw span{opacity:0;transform:translateX(-8px);transition:.3s}.cs:hover .vw span,.cs:focus-visible .vw span{opacity:1;transform:none}
 .fl{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:14px}.fl i{font-style:normal;color:var(--mu)}
-dialog{border:1px solid var(--ink);border-radius:4px;background:var(--bg);color:var(--ink);max-width:640px;width:calc(100% - 32px);padding:clamp(24px,4vw,44px)}dialog::backdrop{background:rgba(0,0,0,.45)}
+.dialog{border:1px solid var(--ink);border-radius:4px;background:var(--bg);color:var(--ink);max-width:760px;width:min(760px,calc(100% - 32px));max-height:88vh;padding:0;overflow:hidden}dialog::backdrop{background:rgba(34,34,34,.48)}.dinner{max-height:88vh;overflow:auto;padding:clamp(24px,4vw,44px)}.dbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px;position:sticky;top:0;background:var(--bg);padding-bottom:12px;border-bottom:1px solid var(--ln);z-index:2}.dnav{display:flex;gap:8px;align-items:center}.dnav .btn{padding:9px 13px}.dcount{font-size:12px;color:var(--mu);min-width:80px;text-align:center}dialog::backdrop{background:rgba(0,0,0,.45)}
 dialog h3{font-weight:300;font-size:2rem;letter-spacing:-.04em;line-height:1.05;margin:0 0 6px}dialog .x{float:right}dialog .tg{margin:18px 0}
 .gd{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}@media(max-width:900px){.gd{grid-template-columns:1fr}}
 .gd dl{margin:18px 0 0;font-size:15px}.gd dt{font-weight:400;margin-top:12px}.gd dd{margin:0;color:var(--mu);border-bottom:1px dashed var(--ln);padding-bottom:8px}
 .ex{border-top:1px solid var(--ln);margin-top:56px}
-.ex button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:1.3fr 1.2fr auto;gap:20px;align-items:center;padding:28px 0;border-bottom:1px solid var(--ln)}
+.ex button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:42% 30% 28%;gap:0;align-items:center;padding:28px 0;border-bottom:1px solid var(--ln)}.ex .r{justify-content:flex-end}
 .ex button:focus-visible{outline:2px solid var(--ink)}.ex h3{font-weight:400;font-size:1.6rem;letter-spacing:-.03em}
 .ex .r{display:flex;align-items:center;gap:14px}.ex .r b{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;transition:transform .4s,background .3s}
 .ex button:hover .r b{background:var(--ac);color:var(--on)}.ex [aria-expanded=true] .r b{transform:rotate(45deg)}
@@ -122,7 +130,7 @@ footer{padding:36px 0 44px;font-size:14px}footer .w{display:flex;flex-wrap:wrap;
 <li style="--i:0">Business</li><li style="--i:1">AI opportunity</li><li style="--i:2">Requirements</li><li style="--i:3">Product</li><li style="--i:4">Outcome</li></ol>
 <div class="mt" id="mt"></div></div></section>
 
-<section id="about"><div class="w split"><h2 class="rv">Business thinking. Product thinking. AI thinking.</h2>
+<section id="about"><div class="w split"><h2 class="rv about-thinking"><span>Business thinking.</span><span>Product thinking.</span><span>AI thinking.</span></h2>
 <div class="rv"><p>I bring 7+ years of experience translating business and user needs into implementation-ready solutions across SaaS and enterprise technology platforms.</p>
 <p>My work spans the journey from problem discovery, requirements, solution definition, development, validation and production.</p>
 <p>My recent focus is AI: identifying high-value AI opportunities within existing products and processes, assessing feasibility and business impact, and translating selected AI solutions into detailed requirements for implementation.</p>
@@ -162,10 +170,10 @@ footer{padding:36px 0 44px;font-size:14px}footer .w{display:flex;flex-wrap:wrap;
 <section class="ct" id="contact"><div class="w"><h2 class="rv big2" style="max-width:14ch">Have a business problem worth solving?</h2>
 <p class="mu rv" style="margin:28px 0 36px;max-width:54ch">I'm interested in opportunities where business analysis, product thinking, data, and AI come together to create measurable outcomes.</p>
 <div class="cta rv"><a class="btn p" href="mailto:purvitham@gmail.com">Let's Connect <i>→</i></a><a class="btn" href="https://linkedin.com/in/purvithamuralikrishnan" target="_blank" rel="noopener">LinkedIn <i>→</i></a><a class="btn" href="https://github.com/Purvitha-Muralikrishnan" target="_blank" rel="noopener">GitHub <i>→</i></a><a class="btn" href="Purvitha_Muralikrishnan_Resume.pdf" download>Download Resume <i>↓</i></a></div>
-<p class="sm mu" style="margin-top:36px">Bengaluru, India · Open to Remote / Relocation</p></div></section></main>
+<p class="sm mu" style="margin-top:36px">Bengaluru, India · Open to Remote / Relocation · <a href="tel:+917708727545" style="color:inherit;text-decoration:none">+91 7708727545</a></p></div></section></main>
 <footer><div class="w"><div><b style="font-weight:500">PURVITHA MURALIKRISHNAN</b><br><span class="mu">AI Business Analyst | Product Analyst · Business × Product × AI</span></div>
-<div><a href="https://linkedin.com/in/purvithamuralikrishnan" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Purvitha-Muralikrishnan" target="_blank" rel="noopener">GitHub</a><a href="mailto:purvitham@gmail.com">Email</a><span class="mu">© 2026 Purvitha Muralikrishnan</span></div></div></footer>
-<dialog id="dlg"><button class="btn x" id="dx" aria-label="Close">Close</button><div id="dc"></div></dialog>
+<div><a href="https://linkedin.com/in/purvithamuralikrishnan" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Purvitha-Muralikrishnan" target="_blank" rel="noopener">GitHub</a><a href="mailto:purvitham@gmail.com">Email</a><a href="tel:+917708727545">+91 7708727545</a><span class="mu">© 2026 Purvitha Muralikrishnan</span></div></div></footer>
+<dialog id="dlg" class="dialog" aria-labelledby="dt"><div class="dinner"><div class="dbar"><button class="btn" id="backWork" type="button">← Back to selected work</button><div class="dnav"><button class="btn" id="prevCase" type="button" aria-label="Previous case study">← Previous</button><span class="dcount" id="dcount">1 / 5</span><button class="btn" id="nextCase" type="button" aria-label="Next case study">Next →</button><button class="btn" id="dx" type="button" aria-label="Close case study">Close</button></div></div><div id="dc"></div></div></dialog>
 <script>
 const $=s=>document.querySelector(s),ch=a=>a.map(x=>`<span>${x}</span>`).join('<i>→</i>'),tg=a=>`<div class="tg">${a.map(x=>`<span>${x}</span>`).join('')}</div>`;
 const M=[{v:7,s:'+',l:'Years experience'},{t:'1 → 4',l:'Enterprise clients'},{v:75,s:'%',l:'Pilot → product conversion'},{v:40,s:'%',l:'Faster discovery → validation'},{v:500,s:'+',l:'Users impacted'}];
@@ -179,8 +187,14 @@ const CS=[['AI Requirement Engineering','From AI solution concept to implementat
 ['User Research → Product Roadmap','Turning field insights into product priorities','5 user personas, 75% pilot-to-product conversion, 500+ users.',['Field research','Personas','Journey maps','Roadmap'],['User research','Persona development','Journey mapping','Roadmap prioritization'],'75%'],
 ['Enterprise Requirements & UAT','Requirements engineering for compliance-driven enterprise technology','3 enterprise projects, 95%+ test coverage, 0 production rollbacks.',['BRD','FRD','Traceability','UAT'],['BRD','FRD','Functional requirements','Requirements traceability','UAT strategy','Cross-functional collaboration'],'95%+']];
 $('#hs').innerHTML=CS.map((c,i)=>`<button class="cs rv" data-i="${i}"><span class="big">${c[5]}</span><h3>${c[0]}</h3><p class="mu sm">${c[1]}</p><div class="fl">${ch(c[3])}</div><span class="vw"><b>↗</b><span>View Case Study →</span></span></button>`).join('');
-$('#hs').onclick=e=>{const b=e.target.closest('.cs');if(!b)return;const c=CS[b.dataset.i];$('#dc').innerHTML=`<h3>${c[0]}</h3><p class="mu">${c[1]}</p><p style="margin-top:18px">${c[2]}</p><div class="fl" style="margin-top:20px">${ch(c[3])}</div>${tg(c[4])}<p class="sm mu">Anonymized. Add context, role, approach and outcome details here.</p>`;$('#dlg').showModal()};
-$('#dx').onclick=()=>$('#dlg').close();$('#dlg').onclick=e=>{if(e.target.id=='dlg')e.target.close()};
+let activeCase=0,workScrollY=0;
+const renderCase=i=>{activeCase=(i+CS.length)%CS.length;const c=CS[activeCase];$('#dc').innerHTML=`<p class="sm mu" style="margin:0 0 10px">${c[5]} · CASE STUDY ${activeCase+1}</p><h2 id="dt" style="margin:0;max-width:18ch">${c[0]}</h2><p class="mu" style="margin-top:14px;font-size:1.08rem">${c[1]}</p><p style="margin-top:24px">${c[2]}</p><div class="fl" style="margin-top:24px">${ch(c[3])}</div>${tg(c[4])}<p class="sm mu" style="margin-top:28px">Anonymized case study. Detailed client information is intentionally omitted.</p>`;$('#dcount').textContent=`${activeCase+1} / ${CS.length}`;$('#prevCase').disabled=activeCase===0;$('#nextCase').disabled=activeCase===CS.length-1;$('#dc').parentElement.scrollTop=0};
+$('#hs').onclick=e=>{const b=e.target.closest('.cs');if(!b)return;workScrollY=scrollY;renderCase(+b.dataset.i);$('#dlg').showModal()};
+$('#prevCase').onclick=()=>renderCase(activeCase-1);$('#nextCase').onclick=()=>renderCase(activeCase+1);
+$('#backWork').onclick=()=>{$('#dlg').close();requestAnimationFrame(()=>scrollTo({top:workScrollY,behavior:'smooth'}))};
+$('#dx').onclick=()=>$('#dlg').close();
+$('#dlg').onclick=e=>{if(e.target.id==='dlg')$('#dlg').close()};
+$('#dlg').addEventListener('keydown',e=>{if(e.key==='ArrowLeft'&&!$('#prevCase').disabled)renderCase(activeCase-1);if(e.key==='ArrowRight'&&!$('#nextCase').disabled)renderCase(activeCase+1);if(e.key==='Escape')$('#dlg').close()});
 const GD=[['Ship a Landing Page with v0 & Vercel','AI-assisted product prototyping project exploring how an idea can be rapidly transformed into a functional landing page. Built a modern, responsive landing page using v0 and deployed it with Vercel. Explored AI-assisted UI generation, iterative design improvements, and deployment workflows, focused on a polished, production-ready web experience with a tech / startup aesthetic.','Used AI-assisted development to create, refine, and deploy a landing page through a rapid prototyping workflow.',['v0','Vercel','AI-assisted development'],'https://e-commerce-storefront-sand.vercel.app/'],
 ['Build a Blog Writing Crew with CrewAI','A hands-on AI agent project exploring how specialized agents can collaborate across a content-generation workflow. Built a multi-agent AI system using CrewAI with Researcher, Writer, and Editor agents, configuring agents and sequential tasks with YAML and Python to automate blog creation.','Built a CrewAI workflow where specialized AI agents collaborate across different stages of content creation.',['CrewAI','AI Agents','Generative AI'],'https://github.com/Purvitha-Muralikrishnan/blog_writing_crew'],
 ['Automate Your Calendar with AI','A hands-on project exploring how AI agents and automation can simplify routine calendar-related tasks. Built an AI-powered n8n workflow that uses ChatGPT to understand natural-language scheduling requests, and integrated Google Calendar to automatically create events with the correct date and time.','Created an AI-driven, no-code automation workflow for calendar-related activities.',['AI Agents','No-code Automation','Calendar Automation'],'https://nextwork.ai/merry_gold_proud_custard-apple/docs/ai-agent-nocode']];
